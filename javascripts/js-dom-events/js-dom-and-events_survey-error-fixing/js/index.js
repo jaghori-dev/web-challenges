@@ -24,7 +24,7 @@ const secondChoiceButton = document.querySelector(
 // 3. This event listener is connected properly. When clicked, the button is shown active. However, the debug message doesn't appear in the debug console. Where is the error with this code?
 firstChoiceButton.addEventListener("click", () => {
   firstChoiceButton.classList.add("active-choice");
-  console("Selected first choice");
+  console.log("Selected first choice");
 });
 
 // 4. When clicking on the second choice, the button should be shown with an active state. Do you see why it isn't working?
