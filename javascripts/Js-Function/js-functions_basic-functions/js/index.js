@@ -36,8 +36,8 @@ Then:
 book.sales += 1;
 book.rating += .4;
 
-console.log(book.sales);
-console.log(book.rating);
+console.log(book);
+
 
 // --^-- write your code here --^--
 
@@ -51,6 +51,20 @@ console.log(book.rating);
 */
 
 // --v-- write your code here --v--
+function logBookData(){
+  console.log(`Title: ${book.title}`);
+  console.log(`Author: ${book.author}`);
+  console.log(`Rating: ${book.rating}`);
+  console.log(`Sales: ${book.sales}`);
+};
+logBookData();
+
+book.sales += 2;
+logBookData();
+
+book.sales += 2;
+logBookData();
+// --^-- write your code here --^--
 function logBookData(){
   book.sales += 2;
   console.log(book)
