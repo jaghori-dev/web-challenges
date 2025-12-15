@@ -9,9 +9,15 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+const book = {
+  title : "Html fundamentals",
+  author : "Alex",
+  rating : 4.1,
+  sales : 120,
 
+}
 // --^-- write your code here --^--
-
+console.log(book);
 /*
 2: Log all variables to the console, for example:
 
@@ -27,6 +33,11 @@ Then:
 */
 
 // --v-- write your code here --v--
+book.sales += 1;
+book.rating += .4;
+
+console.log(book.sales);
+console.log(book.rating);
 
 // --^-- write your code here --^--
 
@@ -40,5 +51,9 @@ Then:
 */
 
 // --v-- write your code here --v--
-
+function logBookData(){
+  book.sales += 2;
+  console.log(book)
+};
+logBookData();
 // --^-- write your code here --^--
