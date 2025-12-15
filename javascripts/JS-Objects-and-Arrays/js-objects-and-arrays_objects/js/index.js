@@ -8,6 +8,7 @@ const personWithNameAgeEmail = {
   age : 29,
   email: "email@email.com",
 };
+console.log(personWithNameAgeEmail);
 
 // EXERCISE 2
 // Set the values of `nameOfAlex` and `ageOfAlex` to match the corresponding values in the `personAlex` object.

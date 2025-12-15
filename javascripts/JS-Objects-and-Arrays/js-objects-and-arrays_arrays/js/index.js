@@ -33,7 +33,7 @@ console.log(fruits);
 
 const nestedNumbers = [10, [20, 30, [40, 50]]];
 
-const nestedNumber = nestedNumbers[1][2][0] = [2, 4, 6];
+const nestedNumber = nestedNumbers[1][2][0] ;
 console.log(nestedNumber);
 
 // EXERCISE 6
