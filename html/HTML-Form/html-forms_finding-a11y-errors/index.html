@@ -15,14 +15,14 @@
       Please let us know how we can support you with a11y issues.
     </p>
 
-    <form for="title">
+    <form action="#" aria-labelledby="title" aria-describedby="description">
       <fieldset>
         <legend>Enter your information</legend>
-        <label>Name:</label>
+        <label for="name-Input">Name:</label>
         <input id="name-Input" type="text" />
-        <label>Age:</label>
+        <label for="age-Input">Age:</label>
         <input id="age-Input" type="text" />
-        <label>Color you cannot see:</label>
+        <label for="color-Input">Color you cannot see:</label>
         <input id="color-Input" type="color" />
         <textarea rows="7" placeholder="Leave us a message..."></textarea>
         <button type="submit">Submit</button>
