@@ -111,10 +111,9 @@ The button that you are working with as an id attribute set in  #hoverButton*/
     /* Write here your solution */
     /* Hides it initially to the right */
     /* Smooth slide transition */
-    transform: translateX(100%);
-    transition: 0.5s ease;
+    transform: translateX(210px);
+    transition: 0.5s linear;
 }
 .active {
-    overflow: visible;
     transform: translateX(0);
 }
