@@ -20,4 +20,16 @@ const colors = [
 ];
 const body = document.querySelector(".body")
 
-colors.forEach()
+// colors.forEach((color)=>{
+// const div = document.createElement("div")
+// div.className = "color-box"
+// div.style.backgroundColor = color
+// document.body.append(div)
+// })
+function renderColorBox(color){
+  const div = document.createElement("div")
+  div.className = "color-box"
+  div.style.backgroundColor = color
+  return document.body.append(div)
+}
+colors.forEach(renderColorBox)
