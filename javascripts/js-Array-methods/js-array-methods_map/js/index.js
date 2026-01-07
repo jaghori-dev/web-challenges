@@ -25,9 +25,19 @@ const cards = [
 ];
 
 const lowerCaseAnswers = null; // ['as often as you like.', ...]
+// cards.map((card)=>{
+// console.log(card.answer.toLowerCase())
+// })
 
 const questionsAndAnswersTogether = null; // ["How often can I use <header>? - As often as you like.", ...]
+// cards.map((card)=> {
+//   console.log(card.question +" - "+ card.answer)
+// })
 
 const questionAndAnswer = null; // [{ question: 'How often can I use <header>?', answer: 'As often as you like.'}, {...}]
+cards.map((card)=> {
+  const neww = `questiion: ${card.question} , answer: ${card.answer}`
+  console.log(neww)
+})
 
 export { lowerCaseAnswers, questionsAndAnswersTogether, questionAndAnswer };
