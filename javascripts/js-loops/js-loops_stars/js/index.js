@@ -9,19 +9,18 @@ function renderStars(filledStars) {
   // --v-- write or modify code below this line --v--
   for (let i = 1; i <= 5; i++) {
     const star = document.createElement("img");
-    star.setAttribute("onclick", "renderStars(" + i + ")");
-    if (i <= filledStars) {
-      star.src = `assets/star-filled.svg`; // filled star
-    } else {
-      star.src = `assets/star-empty.svg`; // empty star
-    }
-    starContainer.appendChild(star);
+    star.src =
+      i <= filledStars ? "assets/star-filled.svg" : "assets/star-empty.svg";
 
+    star.addEventListener("click", () => {
+      renderStars(i);
+    });
+
+    starContainer.append(star);
   }
- } // for loop ends here 
+ } 
  renderStars(0);
 
- star.addEventListener("click", );
 //   // --^-- write or modify code above this line --^--
 
 
