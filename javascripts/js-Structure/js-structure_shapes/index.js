@@ -2,24 +2,25 @@
 
 console.clear();
 import { getRandomColor } from "./utils/randomColor.js";
+import { Circle } from "./components/Circle/circle.js";
+import { Square } from "./components/Square/squar.js";
+import { Pentagon } from "./components/Pentagon/pentagon.js";
 
 const root = document.getElementById("root");
 
-const circle = document.createElement("div");
-circle.classList.add("circle");
+
+const circle = Circle()
 circle.addEventListener("click", () => {
   circle.style.backgroundColor = getRandomColor();
-  
-});
+  });
 
-const square = document.createElement("div");
-square.classList.add("square");
+const square = Square()
 square.addEventListener("click", () => {
   square.style.backgroundColor = getRandomColor();
 });
 
-const pentagon = document.createElement("div");
-pentagon.classList.add("pentagon");
+
+const pentagon = Pentagon()
 pentagon.addEventListener("click", () => {
   pentagon.style.backgroundColor = getRandomColor();
 });
