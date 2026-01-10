@@ -22,7 +22,9 @@ form.addEventListener("submit", (event) => {
   const operation = event.target.operation.value;
   try {
     output.innerText = operations[operation](firstNumber, secondNumber);
+    errorTag.textContent = "";
   } catch (error) {
+    output.textContent = "";
     errorTag.textContent = error.message;
   }
 });
