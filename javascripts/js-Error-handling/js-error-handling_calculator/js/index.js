@@ -23,8 +23,10 @@ form.addEventListener("submit", (event) => {
   try {
     output.innerText = operations[operation](firstNumber, secondNumber);
     errorTag.textContent = "";
+    errorTag.style.display = "none"
   } catch (error) {
     output.textContent = "";
+    errorTag.style.display = "block"
     errorTag.textContent = error.message;
   }
 });
