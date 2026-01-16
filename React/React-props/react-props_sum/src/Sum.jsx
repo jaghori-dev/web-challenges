@@ -1,0 +1,3 @@
+export default function Sum({num1, num2}){
+    return <h1>{num1} + {num2} = {num1 + num2} </h1>
+}
