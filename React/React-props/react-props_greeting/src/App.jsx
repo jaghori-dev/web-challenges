@@ -1,13 +1,11 @@
-import Greeting from "./Greeting"
+import Greeting from "./Greeting";
 export default function App() {
   return (
     <div>
-      <Greeting name="Klaus" isCoach={true} />
-      <Greeting name = "Alex" isCoach={false}/>
-      <Greeting name="Flix" isCoach={true} />
-      <Greeting name="Ali" isCoach={false} />
+      <Greeting name="Klaus" />
+      <Greeting name="Alex" />
+      <Greeting name="Flix" />
+      <Greeting name="Ali" />
     </div>
-  )
+  );
 }
-
-
