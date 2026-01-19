@@ -1,7 +1,11 @@
+import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
-  let count = 0;
+  const [count, setCount] = useState(0)
+  function Counter(){
+    console.log("🤩")
+  }
 
   return (
     <div className="container">
@@ -9,17 +13,13 @@ export default function App() {
       <div className="button-container">
         <button
           type="button"
-          onClick={() => {
-            console.log("🤔");
-          }}
+          onClick={()=> Counter(setCount(count - 1))}
         >
           -
         </button>
         <button
           type="button"
-          onClick={() => {
-            console.log("🤔");
-          }}
+          onClick={()=> Counter(setCount(count + 1))}
         >
           +
         </button>
