@@ -1,5 +1,5 @@
 
-export default function Counter({handleAdd, handleDelet}) {
+export default function Counter({value, handleAdd, handleDelet}) {
 
   return (
     <>
@@ -13,7 +13,9 @@ export default function Counter({handleAdd, handleDelet}) {
         >
           +
         </button>
+        <span>{value}</span>
         <button
+          disabled={value === 0}
           type="button"
           className="counter__button"
           aria-label="decrement people count"
