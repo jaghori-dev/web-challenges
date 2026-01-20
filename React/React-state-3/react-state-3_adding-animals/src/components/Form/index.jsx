@@ -5,6 +5,7 @@ export default function Form({ onAddAnimal }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    
 
     onAddAnimal(data);
 
