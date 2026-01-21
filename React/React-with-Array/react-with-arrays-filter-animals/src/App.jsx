@@ -1,5 +1,7 @@
 import React from "react";
 import "./styles.css";
+import { useState } from "react";
+import { uid } from "uid";
 
 const animals = [
   { id: "1", name: "Dog", habitat: "Domestic Animal", emoji: "🐕" },
@@ -30,5 +32,34 @@ const animals = [
 const habitats = ["Mountains", "Ocean", "Forest", "Domestic Animal"];
 
 export default function App() {
-  return <h1>Animal Filter</h1>;
+  const [habitat, setHabitat ] = useState(animals)
+  function handelFilter(input){
+    setHabitat(animals.filter((animal)=> animal.habitat === input))
+  }
+  return (
+    <main className="main">
+      <ul>
+      {habitats.map((habitat)=> {
+        return (
+          <div key={uid(3)}>
+            <button onClick={()=>handelFilter(habitat)} className="button" style={ {backgroundColor: "lightblue"}}>{habitat}</button>
+          </div>
+        )
+      })}
+      </ul>
+      <ul>
+      {habitat.map((animal)=> {
+        return (
+          <li key={animal.id}>
+            <h1>{animal.name}</h1>
+            <span>{animal.emoji}</span>
+            <p>{animal.habitat}</p>
+          </li> 
+        )
+      })
+      }
+      </ul>
+    </main>  
+   
+  )
 }
