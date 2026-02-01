@@ -3,10 +3,8 @@ import { useEffect, useState } from "react";
 export default function PokemonList() {
   const [pokemon, setPokemon] = useState([]);
   const [page , setPage ] = useState(0)
-  function handlePage(){
-    
+  function handlePage(){  
   }
-
   useEffect(() => {
     async function loadPokemon() {
       try {
@@ -15,6 +13,7 @@ export default function PokemonList() {
         );
         const data = await response.json();
         setPokemon(data.results);  
+        console.log(data)
       } catch (error) {
         console.log(error);
       }
@@ -25,8 +24,8 @@ export default function PokemonList() {
 
   return (
     <main>
-      <button disabled={page === 0} onClick={()=> handlePage(setPage(page - 1))} type="button">Previous Page</button>
-      <button onClick={()=> handlePage(setPage(page + 1))} type="button">Next Page</button>
+      <button disabled={page === 0} onClick={()=> handlePage(setPage(page - 20))} type="button">Previous Page</button>
+      <button onClick={()=> handlePage(setPage(page + 20))} type="button">Next Page</button>
       <ul>
         {pokemon.map(({ name }) => (
           <li key={name}>{name}</li>
