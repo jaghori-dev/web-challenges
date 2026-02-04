@@ -5,10 +5,15 @@ import Link from "next/link";
 export default function Slug() {
   const router = useRouter();
   const { slug } = router.query;
+  if (!router.isReady) {
+    return null;
+  }
   //   const volume = volumes.find((volume) => volume.slug === slug);
   const index = volumes.findIndex((volume) => volume.slug === slug);
   console.log(index);
   const volume = volumes[index];
+  const previousVolume = volumes[index - 1];
+  const nextVolume = volumes[index + 1];
 
   return (
     <>
@@ -25,11 +30,23 @@ export default function Slug() {
         })}
       </ul>
       <Image
-        src={`/images/${volume.slug}.png`}
-        alt={`Cover of book ${volume.title}`}
+        src={volume.cover}
+        alt={`Cover image of ${volume.title}`}
         width={140}
         height={230}
       ></Image>
+      <br />
+      {previousVolume ? (
+        <Link href={`/volumes/${previousVolume.slug}`}>
+          ← Previous: {volume.title}
+        </Link>
+      ) : null}
+      <br />
+      {nextVolume ? (
+        <Link href={`/volumes/${nextVolume.slug}`}>
+          Next: {volume.title} →{" "}
+        </Link>
+      ) : null}
     </>
   );
 }
