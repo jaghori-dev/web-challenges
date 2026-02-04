@@ -17,6 +17,7 @@ export default function Slug() {
 
   return (
     <>
+      <Link href="/">Home</Link> <br />
       <Link href="/volumes">All volumes</Link>
       <h1>{volume.title}</h1>
       <p>{volume.description}</p>
