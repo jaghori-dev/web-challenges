@@ -1,5 +1,4 @@
 import { createServer } from "node:http";
-import { json } from "node:stream/consumers";
 
 const server = createServer((req, res) => {
   console.log(req.url);
@@ -16,7 +15,7 @@ const server = createServer((req, res) => {
         country: "Germany",
       },
     ];
-    // res.setHeader('Content-Type', 'application/json')
+    res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(details));
     return;
   }
