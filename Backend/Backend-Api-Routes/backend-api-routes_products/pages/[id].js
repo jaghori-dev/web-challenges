@@ -24,7 +24,7 @@ export default function Details() {
     <p>{product.category}</p>
     <p>{product.description}</p>
     <Price>{product.price}{product.currency}</Price>
-    <StyledLink href='/' > Back to home</StyledLink>
+    <StyledLink href='/' > Back to products</StyledLink>
     </ProductCard>
     </>
   )
