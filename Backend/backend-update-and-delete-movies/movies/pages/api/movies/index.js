@@ -1,12 +1,17 @@
-import Movie from "../../../db/models/Movie";
 import dbConnect from "../../../db/connect";
+import Movie from "../../../db/models/Movie";
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   await dbConnect();
   if (req.method === "GET") {
+    try { 
     const movies = await Movie.find().limit(20);
     res.status(200).json(movies);
     return;
+    }catch(error){
+      res.status(400).json(error.message)
+    }
   }
-  res.status(405).json({ status: "Method not found" });
-}
+  return res.status(400).json({ status: "Method not allowed" });
+};
+export default handler;
