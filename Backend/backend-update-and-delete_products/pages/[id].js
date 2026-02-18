@@ -8,9 +8,10 @@ import Button from "@/components/Button";
 
 export default function Product() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isConfirm, setIsConfirm] = useState(false);
   const router = useRouter();
   const { id } = router.query;
-
+  // Fetch data from /api/products by id
   const { data: product, isLoading } = useSWR(`/api/products/${id}`);
 
   if (isLoading) {
@@ -20,12 +21,11 @@ export default function Product() {
   if (!product) {
     return;
   }
+  // Handle Update Function
   async function handleUpdate(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const updateProduct = Object.fromEntries(formData);
-
-    console.log("handle update", updateProduct);
 
     const response = await fetch(`/api/products/${id}`, {
       method: "PUT",
@@ -36,13 +36,31 @@ export default function Product() {
     });
     if (response.ok) {
       mutate(`/api/products/${id}`);
-      setIsVisible(false)
+      setIsVisible(false);
     }
-    
+  }
+
+  // Handle Delete Functions
+  async function handleDelete() {
+    const response = await fetch(`/api/products/${id}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      router.push("/");
+    }
   }
 
   return (
     <ProductCard>
+      {isConfirm && (
+        <div>
+          <p>are you sure delete this product</p>
+          <Button onClick={handleDelete}>Delete</Button>
+        </div>
+      )}
+      <Button onClick={() => setIsConfirm(!isConfirm)}>
+        {isConfirm ? "Cancel" : "Delete"}
+      </Button>
       <h2>{product.name}</h2>
       <p>Description: {product.description}</p>
       <p>

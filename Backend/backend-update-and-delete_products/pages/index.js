@@ -2,13 +2,15 @@ import styled from "styled-components";
 import ProductList from "@/components/ProductList";
 import ProductForm from "@/components/ProductForm";
 import useSWR from "swr";
+import { useState } from "react";
+import Button from "@/components/Button";
 
 export default function HomePage() {
-   const { mutate } = useSWR("/api/products");
+  const [isVisible, setIsVisible] = useState(false);
+  const { mutate } = useSWR("/api/products");
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     const formData = new FormData(event.target);
     const productData = Object.fromEntries(formData);
 
@@ -36,7 +38,17 @@ export default function HomePage() {
         </span>
         Fish Shop
       </Heading>
-      <ProductForm onSubmit={handleSubmit} formTitle="Add new fish" buttonText='ADD' />
+      <Button onClick={() => setIsVisible(!isVisible)}>
+        {" "}
+        {isVisible ? "Cancel" : "Add new product"}
+      </Button>
+      {isVisible && (
+        <ProductForm
+          onSubmit={handleSubmit}
+          formTitle="Add new fish"
+          buttonText="ADD"
+        />
+      )}
       <hr />
       <ProductList />
     </>

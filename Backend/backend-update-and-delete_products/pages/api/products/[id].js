@@ -33,6 +33,17 @@ export default async function handler(request, response) {
       response.status(400).json({ error: error.message });
     }
   }
+  if (request.method === "DELETE") {
+    try {
+      const deleteProduct = await Product.findByIdAndDelete(id);
+      if (!deleteProduct) {
+        return response.status(200).json({ success: "product not found" });
+      }
+      return response.status(200).json({ success: true });
+    } catch (error) {
+      return response.status(400).json({ error: message });
+    }
+  }
 
   return response.status(405).json({ status: "Method not allowed." });
 }
