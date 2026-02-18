@@ -12,7 +12,6 @@ export default function ProductList() {
   if (!data) {
     return;
   }
-
   return (
     <>
       <StyledHeading>Available Fishes</StyledHeading>

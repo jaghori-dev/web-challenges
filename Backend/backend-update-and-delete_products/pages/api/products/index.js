@@ -13,10 +13,14 @@ export default async function handler(request, response) {
 
   if (request.method === "POST") {
     const productData = request.body;
-    await Product.create(productData);
+    try {
+      await Product.create(productData);
 
-    response.status(201).json({ status: "Product created." });
-    return;
+      response.status(201).json({ status: "Product created." });
+    } catch (error) {
+      console.error(error);
+      response.status(400).json({ status: error.message });
+    }
   }
 
   response.status(405).json({ status: "Method not allowed." });

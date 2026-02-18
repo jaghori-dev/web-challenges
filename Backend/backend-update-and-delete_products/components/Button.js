@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export default styled.button`
+
+ export default styled.button`
   appearance: none;
   border: none;
   background: var(--color-water-10);
